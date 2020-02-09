@@ -1,7 +1,7 @@
 {
   "name": "bankingnodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Banking Project using NodeJS and ReactJS and MongoDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,25 @@
     "type": "git",
     "url": "git+https://github.com/kimtyjs/BankingNodeJS.git"
   },
-  "author": "KimtyJs",
+  "author": "KimtyJS",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kimtyjs/BankingNodeJS/issues"
   },
-  "homepage": "https://github.com/kimtyjs/BankingNodeJS#readme"
+  "homepage": "https://github.com/kimtyjs/BankingNodeJS#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.11",
+    "passport": "^0.4.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
 }
