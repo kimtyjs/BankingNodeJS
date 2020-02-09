@@ -40,7 +40,7 @@ bower_components
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # Optional REPL history
