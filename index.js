@@ -3,8 +3,13 @@ if( process.env.NODE_ENV !== 'production') {
 }
 
 const express = require("express");
+const connectionDB = require("./config/databaseConnection");
+
 //Initialize App
 const app = express();
+
+//Connect to MongoDB
+connectionDB();
 
 //route for homepage
 app.get('/', (req, res) => res.send("API Running"));

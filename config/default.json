@@ -1,0 +1,3 @@
+{
+  "mongoURL": "mongodb+srv://bankingdb:123456789abc@banking-ebvxm.mongodb.net/test?retryWrites=true&w=majority"
+}
