@@ -1,19 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
 import logo from "../../assets/img/logo.svg";
 
-const Sidebar = (props) => {
+const Sidebar = props => {
 
-    const activeRoute = (routeName) => {
+    const activeRoute = routeName => {
         return props.location.pathname.indexOf(routeName) >
-            1 ? "active" : "";
+            -1 ? "active" : "";
     };
 
-    const [sidebar] = useState(React.createRef());
+    let sidebars = useRef();
 
+    useEffect(() => {
 
+        if (navigator.platform.indexOf("Win") > -1) {
+            let ps = new PerfectScrollbar(sidebars.current, {
+                suppressScrollX: true,
+                suppressScrollY: false
+            });
+            return () => ps;
+        }
+
+    }, []);
+
+    useEffect(() => {   //similar to componentWillUnmount
+
+        if (navigator.platform.indexOf("Win") > -1) {
+            let ps = new PerfectScrollbar(sidebars.current, {
+                suppressScrollX: true,
+                suppressScrollY: false
+            });
+            return () => ps.destroy();
+        }
+
+    }, []);
 
     return(
         <div
@@ -36,7 +58,7 @@ const Sidebar = (props) => {
                     Creative Tim
                 </Link>
             </div>
-            <div className="sidebar-wrapper" ref={ sidebar }>
+            <div className="sidebar-wrapper" ref={ sidebars }>
                 <Nav>
                     {
                         props.routes.map((prop, key) => {
@@ -54,17 +76,13 @@ const Sidebar = (props) => {
                                         <i className={prop.icon} />
                                         <p>{prop.name}</p>
                                     </NavLink>
-                                    
                                 </li>
                             );
                         })
                     }
                 </Nav>
-
             </div>
-
         </div>
     );
 };
-
 export default Sidebar;

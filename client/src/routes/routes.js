@@ -9,6 +9,7 @@ const routes = [
     {
         path: "/dashboard",
         name: "Dashboard-Page",
+        icon: "nc-icon nc-bank",
         component: DashboardHome,
         layout: "/admin"
     },
@@ -16,6 +17,7 @@ const routes = [
     {
         path: "/list",
         name: "UserList",
+        icon: "nc-icon nc-bell-55",
         component: UserList,
         layout: "/admin"
     },

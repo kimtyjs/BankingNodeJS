@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import routes from "../routes/routes";
 import { Switch, Route } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 import Sidebar from "../components/sidebar/Sidebar";
+import NavigationBar from "../components/Navbars/Navbar";
 
-
-const AdminPage = (props) => {
+const AdminPage = props => {
 
     let renderRoute = (routes) => {
         return routes.map((prop, key) => {
@@ -21,18 +21,49 @@ const AdminPage = (props) => {
         })
     };
 
-    const [backgroundColor, setBackgroundColor] = useState({ backgroundColor: "black"});
-    const [activeColor, setActiveColor] = useState({ activeColor: "info" });
-    const [mainPanel] = useState(React.createRef());
+    const [backgroundColor, setBackgroundColor] = useState("black");
+    const [activeColor, setActiveColor] = useState("info");
+    const mainPanel = useRef();
+
+    useEffect(() => {   //similar to componentDidMount
+
+        function returnPS() {
+            if(navigator.platform.indexOf("Win") > -1) {
+                let ps = new PerfectScrollbar(mainPanel.current);
+                document.body.classList.toggle("perfect-scrollbar-on");
+                return () => ps;
+            }
+        }
+        returnPS();
+    }, []);
+
+    useEffect(() => {   //similar to componentWillUnMount
+
+        function cleanPS() {
+            if(navigator.platform.indexOf("Win") > -1) {
+                let ps = new PerfectScrollbar(mainPanel.current);
+                return () => ps.destroy();
+            }
+        }
+        cleanPS();
+
+    }, []);
+
+    useEffect(() => {   //similar to componentDidUpdate
+        if(props.history.action === "PUSH") {
+            mainPanel.current.scrollTop = 0;
+            document.scrollingElement.scrollTop = 0;
+        }
+    }, [props.history.action]);
 
 
 
     const handleActiveClick = color => {
-        setActiveColor({ activeColor: color });
+        setActiveColor(color);
     };
 
     const handleBgClick = color => {
-        setBackgroundColor({ backgroundColor: color });
+        setBackgroundColor(color);
     };
 
     return(
@@ -44,6 +75,7 @@ const AdminPage = (props) => {
                 activeColor = { activeColor }
             />
             <div className="main-panel" ref={ mainPanel }>
+                <NavigationBar { ...props } />
                 <Switch>
                     { renderRoute(routes)  }
                 </Switch>
