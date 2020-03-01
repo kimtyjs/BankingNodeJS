@@ -4,6 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 import Sidebar from "../components/sidebar/Sidebar";
 import NavigationBar from "../components/Navbars/Navbar";
+import Footer from "../components/Footer/Footer";
+import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
 const AdminPage = props => {
 
@@ -79,7 +81,14 @@ const AdminPage = props => {
                 <Switch>
                     { renderRoute(routes)  }
                 </Switch>
+                <Footer  fluid/>
             </div>
+            <FixedPlugin
+                bgColor={ backgroundColor }
+                activeColor={ activeColor }
+                handleActiveClick = { handleActiveClick }
+                handleBgClick={ handleBgClick }
+            />
 
         </div>
     );
