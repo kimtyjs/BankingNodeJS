@@ -8,11 +8,13 @@ export default (routes, routeLayout) => {
             return(
                 <Route
                     key={ index }
+                    exact={ prop.exact }
                     path={ prop.layout + prop.path }
                     component={ prop.component }
                 />
             );
-        } else return null;
+        }
+        else return null;
 
     });
 };

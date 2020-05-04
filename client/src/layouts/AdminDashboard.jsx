@@ -1,27 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import routes from "../routes/routes";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 import Sidebar from "../components/sidebar/Sidebar";
 import NavigationBar from "../components/Navbars/Navbar";
 import Footer from "../components/Footer/Footer";
 import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
-const AdminPage = props => {
+import routes from "../routes/routes";
+import renderList from "../routes/renderList";
 
-    let renderRoute = (routes) => {
-        return routes.map((prop, key) => {
-            if(prop.layout === "/admin") {
-                return(
-                    <Route
-                        path = { prop.layout + prop.path }
-                        component = { prop.component }
-                        key = { key }
-                    />
-                );
-            } else { return null; }
-        })
-    };
+const AdminPage = props => {
 
     const [backgroundColor, setBackgroundColor] = useState("black");
     const [activeColor, setActiveColor] = useState("info");
@@ -58,8 +46,6 @@ const AdminPage = props => {
         }
     }, [props.history.action]);
 
-
-
     const handleActiveClick = color => {
         setActiveColor(color);
     };
@@ -68,18 +54,23 @@ const AdminPage = props => {
         setBackgroundColor(color);
     };
 
+    const validateSidebarRoutes = routes => {
+        return routes.filter(route => route.layout === "/admin");
+    };
+
+
     return(
         <div className="wrapper">
             <Sidebar
                 { ...props }
-                routes = { routes }
+                routes = { validateSidebarRoutes(routes) }
                 bgColor = { backgroundColor }
                 activeColor = { activeColor }
             />
             <div className="main-panel" ref={ mainPanel }>
                 <NavigationBar { ...props } />
                 <Switch>
-                    { renderRoute(routes)  }
+                    { renderList(routes, "/admin") }
                 </Switch>
                 <Footer  fluid/>
             </div>

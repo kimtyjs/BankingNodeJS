@@ -103,6 +103,5 @@ const FixedPlugin = props => {
 
         </div>
     );
-
 };
 export default FixedPlugin;
