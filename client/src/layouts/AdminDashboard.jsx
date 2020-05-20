@@ -58,7 +58,6 @@ const AdminPage = props => {
         return routes.filter(route => route.layout === "/admin");
     };
 
-
     return(
         <div className="wrapper">
             <Sidebar

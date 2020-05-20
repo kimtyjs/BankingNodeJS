@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 import routes from "../routes/routes";
 import renderList from "../routes/renderList";

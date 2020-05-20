@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
-import logo from "../../assets/img/logo.svg";
+import logo from "../../assets/img/logo/logo.svg";
 
 const Sidebar = props => {
 

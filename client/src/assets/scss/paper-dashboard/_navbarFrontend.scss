@@ -1,0 +1,114 @@
+.top_header_area {
+    height: 150px;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+
+    .search_bar {
+        width: 750px;
+
+        .minus-f {
+            margin-bottom: 0;
+        }
+
+        .dropdown-toggle::after {
+
+            border-left: 1px solid #f3f3f3;
+            border-top: 0;
+            border-bottom: 0;
+            border-right: 1px solid transparent;
+        }
+
+        .minus-btn-u {
+            background-color: darkgray;
+            background-image: none;
+            line-height: 13px;
+        }
+
+        #search {
+            margin-left: -1px;
+            margin-right: -1px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .minus-btn-d {
+            position: relative;
+            left: -0.1rem;
+            overflow: hidden;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+    }
+
+    .header-right-side-menu {
+        & > a {
+            width: 60px;
+            display: block;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            background-color: #3a3a3a;
+            color: #fff;
+            border-radius: 50%;
+        }
+        & > a:focus,
+        & > a:hover {
+            background-color: #ff084e;
+            color: #fff;
+        }
+    }
+}
+
+.main_header_area {
+
+    height: 80px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .languages-area {
+        //empty temporarily ...
+    }
+
+    .main-menu-area {   //navBar
+       position: relative;
+        z-index: 500;
+    }
+    .main-nav {
+        flex-direction: row;
+
+        & > li + li {
+            margin-left: 30px;
+        }
+
+        & > li > a {
+            padding: 20px 0;
+        }
+
+        & > li > a:hover,
+        & > li > a:focus,
+        & > li.active > a {
+            color: #5e5e5e;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        & > li > a:after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 2px;
+            background-color: #D10024;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+
+        & > li > a:hover:after,
+        & > li > a:focus:after {
+            width: 100%;
+        }
+    }
+    
+}
