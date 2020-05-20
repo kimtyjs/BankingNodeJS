@@ -1,0 +1,53 @@
+.card-area {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .card-item {
+        height: 255px;
+        width: 100%;
+
+        .card-background {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+        }
+
+        .card-content {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: calc(100% - 60px);
+            height: calc(100% - 60px);
+            background: rgba(255,255,255,0.9);
+            padding-left: 10px;
+            padding-right: 10px;
+            visibility: hidden;
+            opacity: 0;
+            transform-origin: center center;
+            -webkit-transform: scale(0.7);
+            -moz-transform: scale(0.7);
+            -ms-transform: scale(0.7);
+            -o-transform: scale(0.7);
+            transform: scale(0.7);
+            -webkit-transition: all 300ms ease;
+            -moz-transition: all 300ms ease;
+            -ms-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            transition: all 300ms ease;
+        }
+
+        &:hover .card-content {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+
+}

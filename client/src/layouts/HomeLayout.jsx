@@ -60,6 +60,7 @@ const HomeLayout = () => {
                     { renderList(routes, path) }
                 </Switch>
             </div>
+            {/*footer will be added soon*/}
         </>
     );
 };
