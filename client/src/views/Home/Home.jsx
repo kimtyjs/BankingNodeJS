@@ -1,8 +1,14 @@
 import React from "react";
 
+import Slider from "../../components/Sliders/Slider";
+import slideImages from "../../utils/slideImages";
+
 const HomePage = () => {
+
     return(
-        <div>Hello It is home page</div>
+        <div>
+            <Slider slides={ slideImages } />
+        </div>
     );
 };
 

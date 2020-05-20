@@ -1,0 +1,97 @@
+#content-wrapper {
+    position: relative;
+    z-index: 1000;
+    background-color: #fff;
+}
+
+#content-wrapper.karl-side-menu-open {
+    top: 0;
+    left: 300px;
+
+}
+
+#content-wrapper.karl-side-menu-open:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    position: absolute;
+    z-index: 1200;
+}
+
+.categories-side-menu {
+    background-color: #fff;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+
+    #sideMenuClose {
+        color: #fff;
+        width: 20%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 0;
+        cursor: pointer;
+        z-index: 99;
+        position: absolute;
+        top: 0;
+        right: 0;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        background-color: #3a3a3a;
+    }
+
+    #sideMenuClose:hover {
+        background-color: #ff084e;
+    }
+
+    .menu-list {
+        margin-top: 50px;
+        h6 {
+            padding: 30px 15px;
+            margin-bottom: 0;
+            text-align: center;
+            border-bottom: 1px solid #ebebeb;
+        }
+    }
+    .menu-content {
+        display: block;
+        padding-left: 0;
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        li {
+            padding-left: 0;
+            border-bottom: 1px solid #ebebeb;
+            a {
+                position: relative;
+                z-index: 1;
+                text-decoration: none;
+                color: #3a3a3a;
+                height: 45px;
+                display:block;
+                padding-left: 70px;
+                font-family: $font-family-sans-serif;
+                font-size: 14px;
+                line-height: 45px;
+
+            }
+            a:hover, a:focus {
+                background-color: #ebebeb;
+            }
+        }
+    }
+}
+
+//Note: having style of HomeLayout and Categories Right side menu

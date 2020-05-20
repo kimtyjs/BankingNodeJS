@@ -30,7 +30,7 @@
 @import "paper-dashboard/checkboxes-radio";
 
 
-// components
+// components for backend
 @import "paper-dashboard/navbar";
 @import "paper-dashboard/page-header";
 @import "paper-dashboard/dropdown";
@@ -42,6 +42,9 @@
 @import "paper-dashboard/footers";
 @import "paper-dashboard/fixed-plugin";
 
+//components for frontend
+@import "paper-dashboard/navbarFrontend";
+
 // cards
 @import "paper-dashboard/cards";
 @import "paper-dashboard/cards/card-plain";
@@ -52,8 +55,9 @@
 
 @import "paper-dashboard/responsive";
 
-//pages Stying
-@import "paper-dashboard/pages/register";
+//pages & layout for frontend
+@import "paper-dashboard/pages/register";       //style for the whole class of Reg and Log
+@import "paper-dashboard/layouts/homeLayout";
 
 // html to react differences
 //@import "paper-dashboard/react/react-differences.scss";
