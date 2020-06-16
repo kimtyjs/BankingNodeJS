@@ -1,0 +1,103 @@
+$mainColor : #9C27B0;
+
+.menubar {
+  display: block;
+  height: 38px;
+  width: 38px;
+  background-color: $mainColor;
+  box-shadow: 2px 5px 5px 0 rgba(0,0,0,.12);
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #666;
+}
+
+
+.menubar span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 300;
+  font-size: 2em;
+  line-height: 60px;
+}
+
+
+#hambmenu {
+
+  float: left;
+  width: 38px;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+}
+
+  .hambclicker {
+      content: "";
+      height: 38px;
+      width: 38px;
+      position: absolute;
+      cursor: pointer;
+      z-index: 9;
+  }
+
+
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 600vh;
+  width: 400px;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: transform 300ms;
+
+  & ul {
+    margin-top: 0px;
+    padding: 0px;
+    color: black;
+    list-style-type: none;
+    text-align: left;
+  }
+
+  & li {
+    padding: 10px 0 10px 25px;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgba(0,0,0,.14);
+
+    a {
+      padding-left: 10px;
+    }
+  }
+
+  & li:last-child {  border-bottom: none; }
+
+}
+
+#menu.isopen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: none;
+  z-index: 50;
+}
+
+@media screen and (max-width: 420px) {
+  .menubar span {  font-size: 1.2em; }
+
+}
+
+.menu-header {
+  width: 100%;
+  height:50px;
+  background-color: #232f3e;;
+}
+
+
+
+
+
+
+

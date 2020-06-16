@@ -59,6 +59,8 @@
 //pages & layout for frontend
 @import "paper-dashboard/pages/register";       //style for the whole class of Reg and Log
 @import "paper-dashboard/layouts/homeLayout";
+@import "paper-dashboard/footerFrontend";
+@import "paper-dashboard/hamburgerMenu";
 
 // html to react differences
 //@import "paper-dashboard/react/react-differences.scss";

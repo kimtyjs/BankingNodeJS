@@ -3,6 +3,31 @@
     width: 100%;
     position: relative;
     z-index: 1000;
+    background-color: aqua;
+
+    .hamburger-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: 40px;
+        background-color: #333333;
+        font-size: 25px;
+        color: #fff;
+        margin: 10px 7px 10px 7px;
+        padding: 10px 8px 10px 8px;
+        border-radius: 3px;
+        border: 1px solid #666;
+        position: relative;
+
+        .icon-hamburger {
+            //background-position: -136px -255px;
+            width: 20px;
+            height: 18px
+            //position: absolute;
+        }
+
+    }
 
     .search_bar {
         width: 750px;
@@ -110,5 +135,6 @@
             width: 100%;
         }
     }
-    
+
 }
+

@@ -1,4 +1,4 @@
-import HomePage from "../views/Home/Home";
+import HomePage from "../views/Frontend/Home";
 
 //dashboard view
 import DashboardHome from "../views/Dashboard/Dashboard";
@@ -10,7 +10,8 @@ import Typography from "../views/Dashboard/Typhography";
 //auth view
 import Register from "../views/Authentication/Register";
 import Login from "../views/Authentication/Login";
-import AboutPage from "../views/Home/About";
+import AboutPage from "../views/Frontend/About";
+import TestVar from "../views/Test/Test";
 
 
 const routes = [
@@ -78,7 +79,16 @@ const routes = [
         name: "LoginPage",
         component: Login,
         layout: "/auth"
+    },
+
+    {
+        path: "/test",
+        name: "Testing",
+        component: TestVar,
+        layout: "/auth"
     }
+
+
 
 ];
 export default routes;

@@ -1,25 +1,20 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React from "react"
+import { Link } from "react-router-dom";
+import Menu from "../HamburgerMenu/Menu";
 
-const NavbarFrontend = ({ logo, menuClass }) => {
-
-    const [btnRight] = useState("karl-side-menu-open");
-
-    const isBtnRightClick = () => {
-
-        menuClass(btnRight);
-    };
+const NavbarFrontend = ({ logo }) => {
 
     return(
         <header>
             <div className="top_header_area">
                 <div className="container-fluid h-100">
                     <div className="row h-100 align-items-center justify-content-around">
-                       <div className="top_logo">
-                           <Link to="#">
-                               <img src={ logo } alt="logo_img"/>
-                           </Link>
-                       </div>
+                        <Menu/>
+                        <div className="top_logo">
+                            <Link to="#">
+                                <img src={ logo } alt="logo_img"/>
+                            </Link>
+                        </div>
                         <div className="search_bar">
                             <div className="input-group minus-f align-items-center justify-content-center">
                                 <div className="input-group-prepend search-panel">
@@ -47,11 +42,7 @@ const NavbarFrontend = ({ logo, menuClass }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="header-right-side-menu ml-15">
-                            <Link to="#" id="sideMenuOpen" onClick={ isBtnRightClick } className="link-btn" >
-                                <i className="fa fa-bars" aria-hidden="true"/>
-                            </Link>
-                        </div>
+                        <div>Account</div>
                     </div>
                 </div>
             </div>

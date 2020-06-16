@@ -3,11 +3,12 @@
     margin-bottom: 20px;
 
     .card-item {
+        position: relative;
         height: 255px;
         width: 100%;
 
         .card-background {
-            position: relative;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -48,6 +49,4 @@
             transform: scale(1);
         }
     }
-
-
 }
