@@ -2,11 +2,11 @@ if( process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 require("rootpath")();
+
 const express = require("express");
 const connectionDB = require("./config/databaseConnection");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const errorHandler = require("./middlewares/error-handler");
 
 //Initialize App
 const app = express();
@@ -25,8 +25,6 @@ app.use('/users', require('./routes/user'));
 //route for homepage
 app.get('/', (req, res) => res.send("API Running"));
 
-//global error handler
-app.use(errorHandler);
 
 //Set Port
 const PORT = process.env.PORT || 8000;

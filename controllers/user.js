@@ -14,20 +14,19 @@ module.exports = {
     deleteUser
 };
 
-async function create(userParam) {
+async function create(userParam) {  //register
 
-    let { name, email, password, phoneNumber } = userParam;
+    let { name, email, password } = userParam;
 
     let user = await UserModel.findOne(
-        { email: email },
-        { phoneNumber: phoneNumber }
+        { email: email }
     );
 
     if(!validator.isLength(name, 3, 20)) {
-        throw "Username have at least min 3characters and max 8 characters";
+        throw "Username must have at least min 3characters and max 8 characters";
     }
     if(!validator.isAlpha(name,['en-US'])) {
-        throw "Username must contain only alphabet character";
+        throw "Username have must contain only alphabet character";
     }
 
     if(user) {
@@ -42,14 +41,6 @@ async function create(userParam) {
     const noSpace = /^\S+$/g;  //remove space within password
     if(!validator.isLength(password, 8, 20) || !validator.matches(password, noSpace)) {
         throw 'password "' + password + '" is invalided';
-    }
-
-    const phoneNumNine = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$/;
-    if(!validator.isMobilePhone(phoneNumber) || !validator.matches(phoneNumber, phoneNumNine)) {
-        throw "Please Input a valid PhoneNumber!";
-    }
-    if(user) {
-        throw 'PhoneNumber "' + phoneNumber + '" is already taken';
     }
 
     user = new UserModel(userParam);
@@ -76,7 +67,7 @@ async function create(userParam) {
     return jwt.sign(payload, config.get("jwtSecret"), signOption);
 }
 
-async function authenticate({ email, password }) {
+async function authenticate({ email, password }) {  //Login
 
     const user = await UserModel.findOne({ email });
     const isMatch = await bcrypt.compare(password, user.password);
@@ -98,7 +89,7 @@ async function getAll() {   //get all user
     return await UserModel.find().select('-hash');
 }
 
-async function getById(id) { //need to be fixed
+async function getById(id) { //need to be fixed!!!
 
     return await UserModel.findById(id).select('-hash');
 }
